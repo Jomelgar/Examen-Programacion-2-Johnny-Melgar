@@ -51,6 +51,11 @@ public class Comentario extends javax.swing.JPanel {
         jLabel3 = new javax.swing.JLabel();
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBox1.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                jComboBox1ItemStateChanged(evt);
+            }
+        });
 
         jLabel1.setText("PostID:");
 
@@ -130,6 +135,11 @@ public class Comentario extends javax.swing.JPanel {
         Inicio.uber.agregarComment(AQuien.getUsername(), jComboBox1.getSelectedIndex(),
                 Inicio.usuario.getUsername(), jTextArea2.getText());
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jComboBox1ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jComboBox1ItemStateChanged
+        // TODO add your handling code here:
+        jTextArea1.setText(AQuien.getPosts().get(jComboBox1.getSelectedIndex()));
+    }//GEN-LAST:event_jComboBox1ItemStateChanged
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
